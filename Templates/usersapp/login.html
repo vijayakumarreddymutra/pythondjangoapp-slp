@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Home page</title>
+    <style>
+        body {
+            background-color:cornsilk;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+
+
+        .my-login{
+            background-color: darkcyan;
+            position: absolute;
+            top: 200px;
+            left: 530px;
+            bottom: 150px;
+            right: 530px;
+            margin: 2px solid red;
+            padding: 100px 80px;
+            border-radius: 10px;
+            background: rgba(76, 175, 80, 0.3)
+            
+        }
+
+        label{
+            padding-left: 10px;
+            position: relative;
+            font-size: 18px;
+            font-style: oblique;
+            
+        }
+
+        label {
+            font-weight: bold;
+            color: #3c376e;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 92%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+
+        button {
+            width: 50%;
+            padding: 10px 15px;
+            background-color: #424981;
+            margin-left: 70px;
+            color: white;
+            font-weight: bold;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .links {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .links a {
+            display: block;
+            color: #007bff;
+            text-decoration: none;
+            margin-top: 5px;
+        }
+
+        .links a:hover {
+            text-decoration: underline;
+        }
+        
+    </style>
+</head>
+<body>
+
+   <div class="my-login">
+        <form name="my_login_form" method="post">
+            {% csrf_token %}
+            <h1> User Login Page </h1>
+            <label for="my_user"> UserName</label>
+            <input type="text" name="username" placeholder="enter your username..." id="my_user">
+            <br>
+            <label for="my_pwd"> Password </label>
+            <input type="password" name="password" placeholder="enter your password..." id="my_pwd">
+            <br>
+            <button name="submit"> Submit </button>
+            <br>
+            <div class=""links>
+            <a href="#"> New user: SignUp</a>
+            <a href="#"> Forgot Password?</a>
+            </div>
+        </form>
+   </div>
+
+    
+
+</body>
+</html>

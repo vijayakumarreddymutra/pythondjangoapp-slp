@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Homepage</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f2f2f2;
+    }
+    header {
+      background-color: #4CAF50;
+      color: white;
+      position: relative;
+      padding: 20px;
+      text-align: center;
+    }
+    nav {
+      background-color: #294588;
+      block-size: auto;
+      
+    }
+    nav a {
+      float: none;
+      display: inline-block;
+      color: white;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
+    nav a:hover {
+      background-color: #575757;
+    }
+
+    /* User dropdown styles */
+    .user-menu {
+      float: right;
+      position: relative;
+    }
+    .user-icon {
+      cursor: pointer;
+      padding: 14px 16px;
+      display: flex;
+      align-items: center;
+      color: white;
+    }
+    .show {
+  display: block !important;
+}
+    .dropdown {
+      display: none;
+      position: absolute;
+      right: 0;
+      background-color: white;
+      min-width: 130px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+    .dropdown a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+    .dropdown a:hover {
+      background-color: #f1f1f1;
+    }
+
+    main {
+      padding: 20px;
+      text-align: center;
+    }
+    footer {
+      background-color: #ddd;
+      text-align: center;
+      padding: 10px;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Welcome to Ecommerce Website</h1>
+</header>
+
+<nav>
+<div>
+  <a href="#">Products</a>
+  <div id="ProductDropdown">
+    <div class="user-icon" onclick="toggleDropdownone()">
+      <a href="#">Profile</a>
+      <a href="#">Logout</a>
+    </div>
+</div>
+  <a href="#">Cart</a>
+  <a href="#">About Us</a>
+  <a href="#">Contact</a>
+
+  <div class="user-menu">
+    <div class="user-icon" onclick="toggleDropdown()">
+      <i class="fas fa-user-circle fa-lg"> {{ request.username }}</i>
+    </div>
+    <div class="dropdown" id="userDropdown">
+      <a href="#">Profile</a>
+      <a href="#">Logout</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <h2>Hello!</h2>
+  <p>This is a simple HTML homepage. You can customize it as needed.</p>
+</main>
+
+<footer>
+  &copy; 2025 My Website
+</footer>
+
+<script>
+  // Toggle dropdown visibility on icon click
+  function toggleDropdown() {
+    document.getElementById("userDropdown").classList.toggle("show");
+  }
+
+  // Close dropdown when clicking outside
+  window.onclick = function(event) {
+    if (!event.target.closest('.user-menu')) {
+      document.getElementById("userDropdown").classList.remove("show");
+    }
+  };
+
+   function toggleDropdownone() {
+    document.getElementById("ProductDropdown").classList.toggle("show");
+  }
+
+  // Close dropdown when clicking outside
+  window.onclick = function(event) {
+    if (!event.target.closest('.user-menu')) {
+      document.getElementById("ProductDropdown").classList.remove("show");
+    }
+  };
+</script>
+
+</body>
+</html>
